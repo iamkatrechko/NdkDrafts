@@ -12,5 +12,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.tvMessage.text = getStringFromJNI()
+    }
+
+    private external fun getStringFromJNI(): String
+
+    companion object {
+
+        init {
+            System.loadLibrary("library_name")
+        }
     }
 }
